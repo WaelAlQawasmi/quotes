@@ -4,6 +4,7 @@
 package quotes;
 
 import com.google.gson.Gson;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
@@ -14,16 +15,15 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void Tests() {
+    @Test void TestsFile() {
         try {
             BufferedReader dataJson = new BufferedReader(new FileReader("C:\\Users\\WAEL\\quotes\\data.json"));
             Gson gson = new Gson();
 
             wisdom[] dataJavaOpject= gson.fromJson(dataJson, wisdom[].class);
-            int random1 = (int) (Math.random()*100);
-            int random2 = (int) (Math.random()*100);
-           assertNotEquals(dataJavaOpject[random1].toString(),dataJavaOpject[random2].toString());
 
+
+           assertEquals(dataJavaOpject[1].toString(),"'Ask no questions, and you'll be told no lies.'    author:'Charles Dickens'");
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -31,6 +31,18 @@ class AppTest {
 
 
         }
+
+    }
+
+
+
+    @Test void TestsApi() throws IOException {
+        App API=new App();
+
+
+
+        assertEquals(API.APIQuteReader(),API.APIQuteReader());
+
 
     }
 }
