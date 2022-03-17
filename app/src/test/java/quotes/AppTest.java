@@ -41,8 +41,25 @@ class AppTest {
 
 
 
-        assertEquals(API.APIQuteReader(),API.APIQuteReader());
+        BufferedReader dataJson = new BufferedReader(new FileReader("C:\\Users\\WAEL\\quotes\\ditto.json")); // read from file
+
+        assertEquals(API.APIQuteReader(),dataJson.readLine());
 
 
     }
+
+
+    @Test void TestsApiNoenternet() throws IOException {
+        // you must test without internet
+        App API=new App();
+
+        BufferedReader dataJson = new BufferedReader(new FileReader("C:\\Users\\WAEL\\quotes\\ditto.json")); // read from file
+
+
+        assertEquals(API.APIQuteReader(),dataJson.readLine());
+
+
+    }
+
+
 }

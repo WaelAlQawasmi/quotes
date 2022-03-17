@@ -36,7 +36,7 @@ public class App {
             wisdom[] dataJavaOpject= gson.fromJson(dataJson, wisdom[].class); // convert from json using class i created and  library
             int random = (int) (Math.random()*100);
             System.out.println( dataJavaOpject[random].toString());
-return dataJavaOpject[random].toString();
+            return dataJavaOpject[random].toString();
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -84,11 +84,12 @@ return dataJavaOpject[random].toString();
                     System.out.println(dataJson);
                     return FileQuteReader();
                 }
-               else {
+                else {
+                    BufferedReader dataJson2 = new BufferedReader(new FileReader("C:\\Users\\WAEL\\quotes\\ditto.json")); // read from file
 
                     Gson gson = new Gson();//library to deal with json
 
-                    ApiQute qute = gson.fromJson(dataJson, ApiQute.class); //to convert to java object using Api class that i created
+                    ApiQute qute = gson.fromJson(dataJson2, ApiQute.class); //to convert to java object using Api class that i created
                     System.out.println("-------------FROM  Response FILE---------------");// to indecate that i use file
                     System.out.println(qute.toString());// to print the qute from file
                     return qute.toString();
@@ -97,11 +98,11 @@ return dataJavaOpject[random].toString();
             catch (Exception exception){
 
 
-        }
+            }
 
         }
 
-return "no data";
+        return "no data";
 
     }
 
