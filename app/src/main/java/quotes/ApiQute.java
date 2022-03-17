@@ -11,9 +11,7 @@ public class ApiQute {
 
     @Override
     public String toString() {
-        return "ApiQute{" +
-                "quoteText='" + quoteText + '\'' +
-                ", quoteAuthor='" + quoteAuthor + '\'' +
+        return "{\"quoteText\":\""+quoteText + "\",\"quoteAuthor\":\""+ quoteAuthor + '\"' +
                 '}';
     }
 }
